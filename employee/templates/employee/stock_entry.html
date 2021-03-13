@@ -1,0 +1,47 @@
+{% extends './base.html' %}
+
+<!-- Page Content -->
+{% block content %}
+<div class="row">
+    <a href="{% url 'employee:employee_details' %}" class="col-1 col-sm" role="button" aria-pressed="true">Employee Details</a>
+    <a href="{% url 'employee:logout_user' %}" class="col-12 col-sm" role="button" aria-pressed="true" style="text-align: end;">Log Out</a>
+</div>
+<div class="wrapper fadeInDown" style="margin-top: 40px;">
+    <div id="formContent">
+        <!-- Login Form -->
+        <div class="row">
+            <form action="{% url 'employee:add_stock' %}" method="post">
+                {% csrf_token %}
+                <div class="col-md-4">
+                    <center><h3>Stock Entry</h3></center>
+                    <div class=".col-md-6 .offset-md-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class=".col-md-6 .offset-md-3">
+                        <label for="no_of_items" class="form-label">No Of Items</label>
+                        <input type="number" class="no_of_items" id="no_of_items" name="no_of_items">
+                    </div>
+                    <div class="mb-3">
+                        <label for="operating_system" class="form-label">OS</label>
+                        <input type="text" class="operating_system" id="operating_system" name="operating_system">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class=".col-md-6 .offset-md-3">
+                        <label class="form-label" for="specifications">Specifications</label>
+                        <input type="specifications" class="form-control" id="specifications" name="specifications">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <center>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </center>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
