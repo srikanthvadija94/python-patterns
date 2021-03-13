@@ -101,3 +101,7 @@ def employee_stock_map(request):
     else:
         form = EmployeeStockForm()
         return render(request, "employee/employee_stock.html",  {'form': form})
+
+
+def add_functionality(request):
+    return render(request, "soo.html")
